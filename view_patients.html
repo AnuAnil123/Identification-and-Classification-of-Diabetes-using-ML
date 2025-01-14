@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Patient</title>
+    <style>
+        body {
+            background-image: url('/static/Main.jpg'); /* Use a relative path */
+            background-size: cover; /* Cover the whole screen */
+            background-position: center; /* Center the image */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: black; /* Change text color for better contrast */
+        }
+        h1 {
+            color: #fff;
+        }
+        a {
+            text-decoration: none;
+            color: #fff; /* White color for links */
+            border: 1px solid #fff; /* Optional: add a border to the link */
+            padding: 5px 10px; /* Optional: add some padding to the link */
+            border-radius: 5px; /* Optional: round the corners of the link */
+        }
+        a:hover {
+            background-color: rgba(255, 255, 255, 0.3); /* Optional: hover effect */
+        }
+    </style>
+</head>
+<body>
+    <h1>Patient Details</h1>
+    <p><strong>Patient ID:</strong> {{ patient.id }}</p>
+    <p><strong>Name:</strong> {{ patient.name }}</p>
+    <p><strong>Prediction:</strong> {{ patient.prediction if patient.prediction else 'Pending' }}</p>
+    <a href="{{ url_for('admin_dashboard') }}">Back to Admin Dashboard</a>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Diabetes Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <Title>
+            <h1>Admin Diabetes Prediction</h1></Title>
+            <form method="POST" action="{{ url_for('admin_predict') }}">
+                <!-- Patient ID and Name Input -->
+                <label for="patient_id">Patient ID:</label>
+                <input type="text" name="patient_id" required><br>
+                <label for="patient_name">Patient Name:</label>
+                <input type="text" name="patient_name" required><br>
+                
+                <h3>Input Features</h3>
+                <!-- Features Input -->
+                <label for="Pregnancies">Pregnancies:</label>
+                <input type="number" name="Pregnancies" required><br>
+                <label for="Glucose">Glucose:</label>
+                <input type="number" name="Glucose" required><br>
+                <label for="BloodPressure">Blood Pressure:</label>
+                <input type="number" name="BloodPressure" required><br>
+                <label for="SkinThickness">Skin Thickness:</label>
+                <input type="number" name="SkinThickness" required><br>
+                <label for="Insulin">Insulin:</label>
+                <input type="number" name="Insulin" required><br>
+                <label for="BMI">BMI:</label>
+                <input type="number" name="BMI" required><br>
+                <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function:</label>
+                <input type="number" name="DiabetesPedigreeFunction" required><br>
+                <label for="Age">Age:</label>
+                <input type="number" name="Age" required><br>
+
+                <h3>Select Prediction Model</h3>
+                <select name="model_choice" required>
+                    <option value="random_forest">Random Forest</option>
+                    <option value="xgb">XGBoost</option>
+                </select><br>
+
+                <input type="submit" value="Predict">
+            </form>
+            <div class="nav-links">
+                <a href="{{ url_for('logout') }}">Logout</a>
+                <a href="{{ url_for('admin_dashboard') }}">User Dashboard</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

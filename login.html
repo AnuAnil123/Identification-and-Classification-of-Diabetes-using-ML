@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='bgnd.jpg') }}");
+            background-size: cover;
+            color: black; /* Adjust text color for visibility */
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+        }
+        form {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            border-radius: 10px;
+            width: 300px; /* Fixed width for better layout */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Optional shadow for better visibility */
+        }
+        h1 {
+            text-align: center; /* Center the heading */
+        }
+        ul {
+            list-style-type: none; /* Remove bullet points from list */
+            padding: 0; /* Remove padding */
+            text-align: center; /* Center the messages */
+        }
+    </style>
+</head>
+<body>
+    <h1>Login</h1>
+    <form method="POST" action="/login">
+        <label for="user_type">User Type:</label>
+        <select name="user_type" required>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+        </select>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required>
+        <br>
+        <input type="submit" value="Login">
+    </form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>

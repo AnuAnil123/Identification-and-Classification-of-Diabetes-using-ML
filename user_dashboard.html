@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Diabetes Prediction - User Dashboard</title>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='background.png') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+        form {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        input[type="text"],
+        select {
+            width: 80%;
+            padding: 6px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 0.9em;
+            text-align: center;
+        }
+        input[type="submit"] {
+            width: 80%;
+            padding: 8px;
+            margin-top: 20px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            background-color: #4caf50;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .nav-links {
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        .nav-links a {
+            margin: 0 15px;
+            color: #4caf50;
+            text-decoration: none;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Diabetes Prediction - User Dashboard</h1>
+
+    <div class="nav-links">
+        <a href="{{ url_for('logout') }}">Logout</a>
+        <a href="{{ url_for('admin_dashboard') }}">Back to Admin Dashboard</a>
+    </div>
+
+    <h2>Predict Diabetes</h2>
+    <form method="POST" action="/user_predict">
+        <div class="form-group">
+            <label for="patient_id">Patient ID:</label>
+            <input type="text" name="patient_id" required />
+        </div>
+        <div class="form-group">
+            <label for="patient_name">Patient Name:</label>
+            <input type="text" name="patient_name" required />
+        </div>
+        <div class="form-group">
+            <label for="Pregnancies">Pregnancies:</label>
+            <input type="text" name="Pregnancies" required />
+        </div>
+        <div class="form-group">
+            <label for="Glucose">Glucose:</label>
+            <input type="text" name="Glucose" required />
+        </div>
+        <div class="form-group">
+            <label for="BloodPressure">Blood Pressure:</label>
+            <input type="text" name="BloodPressure" required />
+        </div>
+        <div class="form-group">
+            <label for="SkinThickness">Skin Thickness:</label>
+            <input type="text" name="SkinThickness" required />
+        </div>
+        <div class="form-group">
+            <label for="Insulin">Insulin:</label>
+            <input type="text" name="Insulin" required />
+        </div>
+        <div class="form-group">
+            <label for="BMI">BMI:</label>
+            <input type="text" name="BMI" required />
+        </div>
+        <div class="form-group">
+            <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function:</label>
+            <input type="text" name="DiabetesPedigreeFunction" required />
+        </div>
+        <div class="form-group">
+            <label for="Age">Age:</label>
+            <input type="text" name="Age" required />
+        </div>
+        <div class="form-group">
+            <label for="model_choice">Choose Model:</label>
+            <select name="model_choice" required>
+                <option value="random_forest">Random Forest</option>
+                <option value="xgb">XGBoost</option>
+            </select>
+        </div>
+        <input type="submit" value="Predict" />
+    </form>
+    <div class="nav-links-bottom">
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</body>
+</html>
