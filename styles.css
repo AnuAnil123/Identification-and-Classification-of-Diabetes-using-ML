@@ -1,0 +1,83 @@
+body {
+    background-image: url('/static/Main.jpg');
+    background-size: cover;  /* Makes sure the image covers the whole page */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image */
+    color: black; /* Adjust text color for visibility */
+    font-family: Arial, sans-serif; /* Sets a default font */
+}
+
+/* Container for flash messages */
+.flashes {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0; /* Remove default padding */
+    position: fixed; /* Fix position at the top */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.flashes li {
+    margin: 10px; /* Space between messages */
+    padding: 10px; /* Padding inside messages */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Success messages */
+.flashes li.success {
+    background-color: #35cc58; /* Light green for success */
+    color: #155724; /* Dark green text */
+}
+
+/* Error messages */
+.flashes li.error {
+    background-color: #b90f1d; /* Light red for errors */
+    color: #721c24; /* Dark red text */
+}
+
+/* Optional: Customize forms */
+form {
+    margin: 20px auto;  /* Center the form horizontally */
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly more opaque white */
+    border-radius: 10px;
+    width: 300px; /* Fixed width for forms */
+    text-align: center; /* Center text in form */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    margin-top: 20px;  /* Adjust this value to raise the form higher */
+}
+
+/* Style for input fields */
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select {
+    width: 100%; /* Full width of form */
+    padding: 10px; /* Padding inside input fields */
+    margin: 10px 0; /* Margin above and below input fields */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Style for submit button */
+input[type="submit"] {
+    margin-top: 20px;  /* Add space above the submit button */
+    padding: 10px; /* Padding for the button */
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white; /* White text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+/* Hover effect for submit button */
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Media query for responsive design */
+@media (max-width: 600px) {
+    form {
+        width: 90%; /* Adjust form width on small screens */
+    }
+}
